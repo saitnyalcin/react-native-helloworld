@@ -25,6 +25,10 @@ export default function App() {
   );
 }
 
+const Welcome = ({ personName }) => {
+  return <div>{personName}</div>;
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
