@@ -9,7 +9,7 @@ export default function App() {
     <View style={styles.container}>
       <TextInput
         style={styles.inputStyle}
-        placeholder="Enter your name"
+        placeholder="Enter name.."
         onChangeText={(name) => setname(name)}
       />
       <Text>Name: {name}</Text>
@@ -17,7 +17,7 @@ export default function App() {
       <TextInput
         keyboardType="numeric"
         style={styles.inputStyle}
-        placeholder="Enter your age"
+        placeholder="Enter Age.."
         onChangeText={(age) => setage(age)}
       />
       <Text>Age: {age}</Text>
