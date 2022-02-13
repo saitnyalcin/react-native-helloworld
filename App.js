@@ -1,45 +1,46 @@
 import { useState } from "react";
-import { StyleSheet, Text, View, TextInput } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 export default function App() {
-  const [name, setname] = useState("steve");
-  const [age, setage] = useState("30");
+  const [people, setpeople] = useState([
+    { name: "joseph", key: "1" },
+    { name: "david", key: "2" },
+    { name: "abraham", key: "3" },
+    { name: "aaron", key: "4" },
+    { name: "isaac", key: "5" },
+    { name: "samuel", key: "6" },
+    { name: "jacob", key: "7" },
+    { name: "steve", key: "8" },
+    { name: "john", key: "9" },
+  ]);
 
   return (
     <View style={styles.container}>
-      <TextInput
-        style={styles.inputStyle}
-        placeholder="Enter name.."
-        onChangeText={(name) => setname(name)}
-      />
-      <Text>Name: {name}</Text>
-
-      <TextInput
-        keyboardType="numeric"
-        style={styles.inputStyle}
-        placeholder="Enter Age.."
-        onChangeText={(age) => setage(age)}
-      />
-      <Text>Age: {age}</Text>
+      {people.map((item) => (
+        <ScrollView>
+          <View key={item.key}>
+            <Text style={styles.item}>
+              <span>📕</span> {item.name.toUpperCase()}
+            </Text>
+          </View>
+        </ScrollView>
+      ))}
     </View>
   );
 }
 
-const Welcome = ({ personName }) => {
-  return <div>{personName}</div>;
-};
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: "#fff",
+    paddingTop: 20,
+    paddingHorizontal: 20,
   },
-  inputStyle: {
-    borderWidth: 1,
-    borderColor: "#777",
-    padding: 8,
-    margin: 10,
-    width: 200,
+  item: {
+    padding: 10,
+    backgroundColor: "green",
+    fontSize: 20,
+    color: "white",
+    fontWeight: "bold",
   },
 });
